@@ -1,0 +1,30 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("gastronomicon");
+
+  return pages.map((page) => ({
+    params: { page: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: CollectionEntry<"gastronomicon">;
+}
+
+const {
+  page: { data, render },
+} = Astro.props;
+const { Content } = await render();
+const paths = await getStaticPaths();
+---
+
+<Layout title={data.title + " | Gastronomicon Docs"}, sideMenuPaths={paths}>
+  <div class="markdown-root">
+    <h1>{data.title}</h1>
+    <Content />
+  </div>
+</Layout>

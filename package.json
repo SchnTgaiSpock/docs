@@ -10,6 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.10.3"
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/tailwind": "^4.0.0",
+    "@fontsource/poppins": "^5.0.8",
+    "astro": "^2.10.3",
+    "astro-icon": "^0.8.1",
+    "mdx": "^0.2.3",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "sass": "^1.64.2"
   }
 }

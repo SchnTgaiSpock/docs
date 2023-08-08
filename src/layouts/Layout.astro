@@ -1,0 +1,75 @@
+---
+import Navbar from "../components/NavBar.astro";
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/100-italic.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/200-italic.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/300-italic.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/400-italic.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/500-italic.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/600-italic.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/700-italic.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/800-italic.css";
+import "@fontsource/poppins/900.css";
+import SideMenu from "../components/SideMenu.astro";
+import "../styles/markdown.scss";
+
+interface Props {
+  title: string;
+  redirectPath?: string;
+  sideMenuPaths?: any[];
+}
+
+const { title, redirectPath, sideMenuPaths = [] } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <>
+      {
+        redirectPath && (
+          <meta http-equiv="refresh" content={`0; url=${redirectPath.endsWith("/") ? redirectPath : redirectPath + "/"}`} />
+        )
+      }
+    </>
+    <title>{title}</title>
+  </head>
+  <body
+    class="bg-background grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] min-h-screen"
+  >
+    <section class="col-span-2">
+      <Navbar />
+    </section>
+    <section>
+      <SideMenu paths={sideMenuPaths} />
+    </section>
+    <section class="!text-text">
+      <div class="p-8 w-[1000px] mx-auto">
+        <slot />
+      </div>
+    </section>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+</style>
+
+<script type="text/javascript">
+  document.querySelectorAll(".markdown-root a")?.forEach(element => {
+    element.href = `../${/[^\/]+$/.exec(element.href)?.[0]}/`
+  })
+</script>
