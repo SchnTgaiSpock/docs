@@ -38,4 +38,4 @@ Replace `VERSION` with the necessary version. The API changelog below will be up
 
 ## Up next
 
-- [Adding Custom Food](custom-food)
+- [Adding Custom Food](/gastronomicon/custom-food)

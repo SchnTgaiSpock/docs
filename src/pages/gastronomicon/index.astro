@@ -1,5 +1,28 @@
 ---
+import { CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("gastronomicon");
+
+  return pages.filter(page => page.slug !== "sidebar" && page.slug !== "index").map((page) => ({
+    params: { page: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: CollectionEntry<"gastronomicon">;
+}
+
+const { Content } = await getEntry("gastronomicon", "index").then(index => index.render());
+const Sidebar = await getEntry("gastronomicon", "sidebar").then(sidebar => sidebar.render());
 ---
 
-<Layout title="Gastronomicon Docs" redirectPath="index" />
+<Layout title="Gastronomicon Docs">
+  <Sidebar.Content slot="sidebar" />
+  <div class="markdown-root">
+    <h1>Home</h1>
+    <Content />
+  </div>
+</Layout>

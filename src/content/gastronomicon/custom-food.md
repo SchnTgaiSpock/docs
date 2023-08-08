@@ -33,7 +33,7 @@ Full documentation:
 | `type(GastroRecipeType type)` | Sets the recipe type of its recipe | Must be set when building / registering |
 | `item(SlimefunItemStack itemStack)` | Sets the itemstack | Must be set when building / registering |
 | `ingredients(ItemStack... ingredients)` | Sets the ingredients (3x3 grid) of the recipe | Must be set when building / registering. |
-| `ingredients(RecipeComponent<?>... ingredients)` | Same as above. See [Recipes](recipes) for more information on `RecipeComponent`. | '' |
+| `ingredients(RecipeComponent<?>... ingredients)` | Same as above. See [Recipes](/gastronomicon/recipes) for more information on `RecipeComponent`. | '' |
 | `ingredients(Object... ingredients)` | Same as above. This method facilitates mixing group recipe components with simple itemstacks. Allowed types are `ItemStack`, `RecipeComponent<?>`, `Material`, and `String` (treated as a `SlimefunItem` id). All other types are treated as null/air | '' |
 | `container(ItemStack container)` | Sets the container of the recipe | Defaults to null/air if unset |
 | `container(RecipeComponent<?> container)` | Same as above | '' |

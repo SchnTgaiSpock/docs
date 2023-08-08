@@ -3,7 +3,7 @@ import { CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("gastronomicon");
+  const pages = await getCollection("wildernether");
 
   return pages.filter(page => page.slug !== "sidebar" && page.slug !== "index").map((page) => ({
     params: { page: page.slug },
@@ -12,20 +12,17 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  page: CollectionEntry<"gastronomicon">;
+  page: CollectionEntry<"wildernether">;
 }
 
-const {
-  page: { data, render },
-} = Astro.props;
-const { Content } = await render();
-const Sidebar = await getEntry("gastronomicon", "sidebar").then(sidebar => sidebar.render());
+const { Content } = await getEntry("wildernether", "index").then(index => index.render());
+const Sidebar = await getEntry("wildernether", "sidebar").then(sidebar => sidebar.render());
 ---
 
-<Layout title={data.title + " | Gastronomicon Docs"}>
+<Layout title="Wildernether Docs">
   <Sidebar.Content slot="sidebar" />
   <div class="markdown-root">
-    <h1>{data.title}</h1>
+    <h1>Home</h1>
     <Content />
   </div>
 </Layout>

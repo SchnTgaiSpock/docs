@@ -4,7 +4,7 @@ title: Gameplay
 
 ## Crafting
 
-Gastronomicon recipes are crafted using ingredients, tools, and a container. See [Crafting](crafting) for more information.
+Gastronomicon recipes are crafted using ingredients, tools, and a container. See [Crafting](/gastronomicon/crafting) for more information.
 
 ## Chef's Profile
 

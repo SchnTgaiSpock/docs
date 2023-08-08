@@ -1,19 +1,6 @@
 ---
-interface Props {
-  paths: any[]
-}
-
-const { paths } = Astro.props;
 ---
 
-<div class="p-8 text-text bg-secondary h-full w-60 border-r border-r-primary">
-  <ul class="flex flex-col gap-1">
-    {paths.filter((path: any) => path.props.page.data.title).map((path: any) => {
-      return (
-        <li>
-          <a class="inline-block text-sm py-[4px] hover:py-[3px] px-[12px] hover:px-[11px] hover:bg-accent hover:border hover:border-accent rounded-lg !bg-opacity-50" href={path.props.page.slug}>{path.props.page.data.title}</a>
-        </li>
-      );
-    })}
-  </ul>
+<div class="p-8 text-text bg-secondary h-full w-64 border-r border-r-primary sidebar">
+  <slot />
 </div>

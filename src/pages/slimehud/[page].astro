@@ -1,11 +1,11 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const pages = await getCollection("slimehud");
 
-  return pages.map((page) => ({
+  return pages.filter(page => page.slug !== "sidebar" && page.slug !== "index").map((page) => ({
     params: { page: page.slug },
     props: { page },
   }));
@@ -19,10 +19,11 @@ const {
   page: { data, render },
 } = Astro.props;
 const { Content } = await render();
-const paths = await getStaticPaths();
+const Sidebar = await getEntry("slimehud", "sidebar").then(sidebar => sidebar.render());
 ---
 
-<Layout title={data.title + " | SlimeHUD Docs"} sideMenuPaths={paths}>
+<Layout title={data.title + " | SlimeHUD Docs"}>
+  <Sidebar.Content slot="sidebar" />
   <div class="markdown-root">
     <h1>{data.title}</h1>
     <Content />

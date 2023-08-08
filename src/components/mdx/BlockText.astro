@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  type: string;
+  headerText: string;
+  headerIcon: string;
+}
+
+const { type, headerText, headerIcon } = Astro.props;
+---
+
+<div class:list={[ "block-text", type ]}>
+  <div class="flex flex-row header">
+    <Icon name={headerIcon} size="1.5rem" />
+    <p>{headerText}</p>
+  </div>
+  <slot />
+</div>

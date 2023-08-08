@@ -2,18 +2,18 @@ Welcome to the Gastronomicon wiki!
 
 ## Basics
 
-- [Gathering Resources](resource-gathering)
-- [Crafting](crafting)
+- [Gathering Resources](/gastronomicon/resource-gathering)
+- [Crafting](/gastronomicon/crafting)
 
 ## API Documentation
 
-- [Setup](api-setup)
-- [Adding Custom Food](custom-food)
-- [Recipe API](recipes)
-- [Custom Events](events)
+- [Setup](/gastronomicon/api-setup)
+- [Adding Custom Food](/gastronomicon/custom-food)
+- [Recipe API](/gastronomicon/recipes)
+- [Custom Events](/gastronomicon/events)
 
 ## Important Links
 
-Download: TBA when released \
-Bug Tracker: <https://github.com/SchnTgaiSpock/Gastronomicon/issues> \
-Todo List: <https://github.com/users/SchnTgaiSpock/projects/1>
+Download: [Builds](https://thebusybiscuit.github.io/builds/SchnTgaiSpock/Gastronomicon/master/) \
+Bug Tracker: [Github](https://github.com/SchnTgaiSpock/Gastronomicon/issues) \
+Todo List: [Github](https://github.com/users/SchnTgaiSpock/projects/1)

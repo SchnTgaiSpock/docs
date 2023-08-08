@@ -1,11 +1,11 @@
-## Gameplay
+### Gameplay
 
-- [Gathering Resources](resource-gathering)
-- [Crafting](crafting)
+- [Gathering Resources](/gastronomicon/resource-gathering)
+- [Crafting](/gastronomicon/crafting)
 
-## API / Integration
+### API / Integration
 
-- [Setup](api-setup)
-- [Adding Custom Food](custom-food)
-- [Recipe API](recipes)
-- [Custom Events](events)
+- [Setup](/gastronomicon/api-setup)
+- [Adding Custom Food](/gastronomicon/custom-food)
+- [Recipe API](/gastronomicon/recipes)
+- [Custom Events](/gastronomicon/events)
