@@ -24,7 +24,7 @@ const Sidebar = await getEntry("wildernether", "sidebar").then(sidebar => sideba
 
 <Layout title={data.title + " | Wildernether Docs"}>
   <Sidebar.Content slot="sidebar" />
-  <div class="markdown-root">
+  <div>
     <h1>{data.title}</h1>
     <Content />
   </div>
