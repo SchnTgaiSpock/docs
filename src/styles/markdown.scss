@@ -135,10 +135,17 @@ $color-warning: #d8d52c;
     padding: 0.8rem 1rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
+    // width: min-content;
+    // max-width: 100%;
+    // overflow: auto;
+    display: flex;
   }
 
   table {
     margin: 1rem 0;
+    max-width: 100%;
+    overflow: auto;
+    display: block;
 
     tr:nth-child(2n) {
       background-color: rgba($color-primary, 0.075);

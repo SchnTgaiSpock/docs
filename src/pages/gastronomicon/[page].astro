@@ -24,7 +24,7 @@ const Sidebar = await getEntry("gastronomicon", "sidebar").then(sidebar => sideb
 
 <Layout title={data.title + " | Gastronomicon Docs"}>
   <Sidebar.Content slot="sidebar" />
-  <div>
+  <div class="">
     <h1>{data.title}</h1>
     <Content />
   </div>
