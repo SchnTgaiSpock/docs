@@ -1,10 +1,26 @@
 ---
 ---
 
-<div
-  class="p-8 text-text bg-secondary h-full w-64 border-r border-r-primary sidebar"
+<side-menu
+  data-url={Astro.url}
+  class="p-8 text-text bg-secondary h-full w-64 border-r border-r-primary sidebar block"
 >
   <div class="fixed">
     <slot />
   </div>
-</div>
+</side-menu>
+
+<script>
+  class SideMenu extends HTMLElement {
+    constructor() {
+      super();
+      document.querySelectorAll<HTMLAnchorElement>(".sidebar a").forEach((elem) => {
+        if (/(.+?)\/?$/.exec(elem.href)?.[1] == /(.+?)\/?$/.exec(this.dataset.url || "")?.[1]) {
+          elem.classList.add("active");
+        }
+      });
+    }
+  }
+ 
+  customElements.define("side-menu", SideMenu)
+</script>

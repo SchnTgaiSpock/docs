@@ -19,11 +19,45 @@ import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/800-italic.css";
 import "@fontsource/poppins/900.css";
 import "../styles/markdown.scss";
+import { ViewTransitions, slide } from "astro:transitions";
+import type { TransitionAnimationPair, TransitionDirectionalAnimations } from "astro";
 
 interface Props {
   title: string;
   redirectPath?: string;
 }
+
+const contentAnim: TransitionDirectionalAnimations = {
+    forwards: {
+      old: [
+        {
+          name: "astroFadeOut",
+          duration: "90ms",
+          easing: "cubic-bezier(0.4, 0, 1, 1)",
+          fillMode: "both"
+        },
+      ],
+      new: [
+        {
+          name: "astroFadeIn",
+          duration: "210ms",
+          easing: "cubic-bezier(0, 0, 0.2, 1)",
+          delay: "90ms",
+          fillMode: "both"
+        },
+        {
+          name: "astroSlideFromRight",
+          duration: "200ms",
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          fillMode: "both"
+        }
+      ]
+    },
+    backwards: {
+      old: [{ name: "astroFadeOut" }, { name: "astroSlideToRight" }],
+      new: [{ name: "astroFadeIn" }, { name: "astroSlideFromLeft" }]
+    }
+  };
 
 const { title, redirectPath } = Astro.props;
 ---
@@ -37,34 +71,39 @@ const { title, redirectPath } = Astro.props;
     <>
       {
         redirectPath && (
-          <meta http-equiv="refresh" content={`0; url=${redirectPath.endsWith("/") ? redirectPath : redirectPath + "/"}`} />
+          <meta
+            http-equiv="refresh"
+            content={`0; url=${
+              redirectPath.endsWith("/") ? redirectPath : redirectPath + "/"
+            }`}
+          />
         )
       }
     </>
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body
     class="bg-background grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] min-h-screen overflow-x-hidden"
   >
-    <section class="col-span-2 sticky top-0">
+    <section class="col-span-2 sticky top-0 z-20">
       <Navbar />
     </section>
-    <section>
+    <section class="z-10" transition:name="none">
       <SideMenu>
         <slot name="sidebar" />
       </SideMenu>
     </section>
-    <section class="!text-text">
-      <div class="p-8 min-[1256px]:w-[1000px] mx-auto markdown-root overflow-x-scroll">
+    <section class="!text-text" transition:animate={contentAnim}>
+      <div class="p-8 min-[1256px]:w-[1000px] mx-auto markdown-root z-0">
         <slot />
       </div>
     </section>
+    <style is:global>
+      html {
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-</style>

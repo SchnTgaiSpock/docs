@@ -186,6 +186,7 @@ $color-warning: #d8d52c;
     text-overflow: ellipsis;
     overflow: hidden;
 
+    &.active,
     &:hover {
       opacity: 1;
       border: 2px solid $color-accent;
