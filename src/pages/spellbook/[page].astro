@@ -1,0 +1,31 @@
+---
+import { CollectionEntry, getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("spellbook");
+
+  return pages.filter(page => page.slug !== "sidebar" && page.slug !== "index").map((page) => ({
+    params: { page: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: CollectionEntry<"spellbook">;
+}
+
+const {
+  page: { data, render },
+} = Astro.props;
+const { Content } = await render();
+const Sidebar = await getEntry("spellbook", "sidebar").then(sidebar => sidebar.render());
+---
+
+<Layout title={data.title + " | Spellbook Docs"}>
+  <Sidebar.Content slot="sidebar" />
+  <div>
+    <h1>{data.title}</h1>
+    <Content />
+  </div>
+</Layout>
