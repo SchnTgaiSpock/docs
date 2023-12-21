@@ -6,11 +6,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'text': '#f3fcfa',
-				'background': '#071217',
-				'primary': '#2ca2d8',
-				'secondary': '#09232f',
-				'accent': '#d16533',
+				'text': '#ebecf0',
+				'background': '#141722',
+				'primary': '#95a4d8',
+				'secondary': '#3d4157',
+				'accent': '#3c61e8',
 			},
 			fontFamily: {
 				sans: ["Poppins", ...defaultTheme.fontFamily.sans],

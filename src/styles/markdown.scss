@@ -1,14 +1,14 @@
-$color-text: #f3fcfa;
-$color-background: #071217;
-$color-primary: #2ca2d8;
-$color-secondary: #09232f;
-$color-accent: #d16533;
-$color-info: #2c63d8;
-$color-warning: #d8d52c;
+$text: #ebecf0;
+$background: #141722;
+$primary: #95a4d8;
+$secondary: #3d4157;
+$accent: #3c61e8;
+$info: #2c63d8;
+$warning: #d8d52c;
 
 .sidebar,
 .markdown-root {
-  color: $color-text;
+  color: $text;
 
   h1,
   h2,
@@ -57,7 +57,7 @@ $color-warning: #d8d52c;
   }
 
   a {
-    color: #d16533;
+    color: $accent;
     text-decoration: underline;
 
     &:hover {
@@ -85,26 +85,26 @@ $color-warning: #d8d52c;
   .block-text,
   blockquote {
     &.info {
-      background-color: rgba($color-info, 0.25);
+      background-color: rgba($info, 0.25);
 
       .header {
-        color: $color-info;
+        color: $info;
       }
 
       &:after {
-        border-left-color: $color-info;
+        border-left-color: $info;
       }
     }
 
     &.warning {
-      background-color: rgba($color-warning, 0.25);
+      background-color: rgba($warning, 0.25);
 
       .header {
-        color: $color-warning;
+        color: $warning;
       }
 
       &:after {
-        border-left-color: $color-warning;
+        border-left-color: $warning;
       }
     }
 
@@ -116,7 +116,7 @@ $color-warning: #d8d52c;
       content: "";
       border-left-width: 0.5rem;
       border-left-style: solid;
-      border-left-color: $color-primary;
+      border-left-color: $primary;
     }
 
     :last-child {
@@ -124,16 +124,16 @@ $color-warning: #d8d52c;
     }
 
     position: relative;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     overflow: hidden;
-    background-color: rgba($color-primary, 0.5);
+    background-color: rgba($primary, 0.5);
     padding: 0.8rem 1.5rem;
     margin: 1rem 0;
   }
 
   pre {
     padding: 0.8rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     margin: 1rem 0;
     // width: min-content;
     // max-width: 100%;
@@ -148,12 +148,12 @@ $color-warning: #d8d52c;
     display: block;
 
     tr:nth-child(2n) {
-      background-color: rgba($color-primary, 0.075);
+      background-color: rgba($primary, 0.075);
     }
 
     th,
     td {
-      border: 1px solid rgba($color-text, 0.25);
+      border: 1px solid rgba($text, 0.25);
       padding: 0.6rem 0.8rem;
     }
   }
@@ -177,21 +177,20 @@ $color-warning: #d8d52c;
     $border-width: 2px;
 
     max-width: 100%;
-    color: $color-text;
+    color: $text;
     text-decoration: none;
     display: inline-flex;
     padding: $padding-h $padding-v;
-    border-radius: 10px;
+    border-radius: 5px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 
-    &.active,
-    &:hover {
+    &.active {
       opacity: 1;
-      border: 2px solid $color-accent;
+      border: 2px solid $accent;
       padding: calc($padding-h - $border-width) calc($padding-v - $border-width);
-      background-color: rgba($color-accent, 0.33);
+      background-color: rgba($accent, 0.33);
     }
   }
 }
