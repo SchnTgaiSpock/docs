@@ -20,46 +20,11 @@ import "@fontsource/poppins/800-italic.css";
 import "@fontsource/poppins/900.css";
 import "../styles/markdown.scss";
 import { ViewTransitions } from "astro:transitions";
-import type {
-  TransitionDirectionalAnimations,
-} from "astro";
 
 interface Props {
   title: string;
   redirectPath?: string;
 }
-
-const contentAnim: TransitionDirectionalAnimations = {
-  forwards: {
-    old: [
-      {
-        name: "astroFadeOut",
-        duration: "10ms",
-        easing: "cubic-bezier(0.4, 0, 1, 1)",
-        fillMode: "both",
-      },
-    ],
-    new: [
-      {
-        name: "astroFadeIn",
-        duration: "10ms",
-        easing: "cubic-bezier(0, 0, 0.2, 1)",
-        delay: "90ms",
-        fillMode: "both",
-      },
-      // {
-      //   name: "astroSlideFromRight",
-      //   duration: "200ms",
-      //   easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-      //   fillMode: "both"
-      // }
-    ],
-  },
-  backwards: {
-    old: [{ name: "astroFadeOut" }, { name: "astroSlideToRight" }],
-    new: [{ name: "astroFadeIn" }, { name: "astroSlideFromLeft" }],
-  },
-};
 
 const { title, redirectPath } = Astro.props;
 ---
@@ -90,12 +55,12 @@ const { title, redirectPath } = Astro.props;
       <Navbar />
     </section>
     <section class="flex flex-1">
-      <section transition:name="none">
+      <section>
         <SideMenu>
           <slot name="sidebar" />
         </SideMenu>
       </section>
-      <section class="!text-text overflow-scroll flex-1" transition:animate={contentAnim}>
+      <section class="!text-text overflow-scroll flex-1">
         <div class="p-8 min-[1256px]:w-[1000px] mx-auto markdown-root z-0">
           <slot />
         </div>
