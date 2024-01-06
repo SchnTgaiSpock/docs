@@ -14,6 +14,6 @@ Welcome to the Gastronomicon wiki!
 
 ## Important Links
 
-Download: [Builds](https://thebusybiscuit.github.io/builds/SchnTgaiSpock/Gastronomicon/master/) \
+Download: [Builds](https://blob.build/project/Gastronomicon/) \
 Bug Tracker: [Github](https://github.com/SchnTgaiSpock/Gastronomicon/issues) \
 Todo List: [Github](https://github.com/users/SchnTgaiSpock/projects/1)

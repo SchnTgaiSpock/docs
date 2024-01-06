@@ -2,7 +2,7 @@ Wildernether is a Slimefun4 Addon that adds a variety of plants, food, and brews
 
 ## How to Install
 
-1. Go to the Wildernether [releases page](https://github.com/SchnTgaiSpock/Wildernether/releases), and download the latest .jar file
+1. Go to the Wildernether [releases page](https://thebusybiscuit.github.io/builds/SchnTgaiSpock/Wildernether/master/), and download the latest .jar file
 2. Drag the .jar into your server's plugins folder.
 
 ## Bug Reports
