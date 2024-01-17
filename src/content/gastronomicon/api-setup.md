@@ -23,15 +23,16 @@ Adding Gastronomicon:
 <dependency>
   <groupId>com.github.SchnTgaiSpock</groupId>
   <artifactId>Gastronomicon</artifactId>
-  <version>VERSION</version>
+  <version>v1.1.0</version>
   <scope>provided</scope>
 </dependency>
 ```
 
-Replace `VERSION` with the necessary version. The API changelog below will be updated as new features get added.
+The API changelog below will be updated as new features get added.
 
 |Version|Changes|
 |:--|:--|
+|v1.1.0|Lombok scope changed to `provided`|
 |v1.0.1|`GastroRecipeType.REFRIDGERATOR` was changed to `GastroRecipeType.REFRIGERATOR` (oops)|
 |v1.0.0|Some classes were moved around to more suitable subfolders. This won't change from now on.|
 |v0.1.0|Initial API Release|
