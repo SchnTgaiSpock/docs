@@ -2,6 +2,7 @@
 
 - [Gathering Resources](/gastronomicon/resource-gathering)
 - [Crafting](/gastronomicon/crafting)
+- [Proficiency and Automation](/gastronomicon/proficiency-and-automation)
 
 ### API / Integration
 
